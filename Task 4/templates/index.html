@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Enter a movie name:</h2>
+    <input type="text" id="movieInput">
+    <button onclick="getRecommendations()">Get Recommendations</button>
+    <h3>Recommendations:</h3>
+    <ul id="recommendations"></ul>
+
+    <script>
+        function getRecommendations() {
+            let movieName = document.getElementById("movieInput").value;
+            fetch("/recommend", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ movie: movieName })
+            })
+            .then(response => response.json())
+            .then(data => {
+                let list = document.getElementById("recommendations");
+                list.innerHTML = "";
+                data.recommendations.forEach(movie => {
+                    let item = document.createElement("li");
+                    item.textContent = movie;
+                    list.appendChild(item);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
