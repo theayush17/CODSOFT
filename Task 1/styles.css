@@ -51,7 +51,7 @@ body.dark-theme .container {
 }
 
 .header {
-    background-color: #88a72b;
+    background-color: #2ba782;
     color: white;
     padding: 15px;
     display: flex;
@@ -162,7 +162,7 @@ body.dark-theme .chat-message.bot .message {
 }
 
 #send-btn {
-    background-color: #88a72b;
+    background-color: #2ba782;
     color: white;
     border: none;
     border-radius: 20px;
@@ -174,7 +174,7 @@ body.dark-theme .chat-message.bot .message {
 }
 
 #send-btn:hover {
-    background-color: #88a72b;
+    background-color: #2ba782;
 }
 
 /* Responsive adjustments */
